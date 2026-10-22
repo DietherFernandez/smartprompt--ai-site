@@ -5,7 +5,7 @@
 (function () {
   "use strict";
 
-  var CONTACT = "Diether.fernandez82@gmail.com";
+  var CONTACT = "codevaultpht@gmail.com";
 
   /* ------------------------------ header ------------------------------ */
   var header = document.querySelector(".site-header");
