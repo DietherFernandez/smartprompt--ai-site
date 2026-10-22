@@ -19,7 +19,7 @@
 
   /* --------------------------- scroll reveal --------------------------- */
   var revealTargets = document.querySelectorAll(
-    ".section-head, .step, .mode, .model-card, .check-list li, .shot-card, .wide-shot, .trial-form, .faq details, .plain-list li"
+    ".rail, .stage, .console, .mode, .assurances li, .model-figure, .route, .ticks li, .trial-form, .faq details, .specstrip-inner > div"
   );
 
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
