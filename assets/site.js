@@ -5,7 +5,7 @@
 (function () {
   "use strict";
 
-  var CONTACT = "Dierther.fernandez82@gmail.com";
+  var CONTACT = "Diether.fernandez82@gmail.com";
 
   /* ------------------------------ header ------------------------------ */
   var header = document.querySelector(".site-header");
