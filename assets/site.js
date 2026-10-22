@@ -62,7 +62,14 @@
 
   if (form && status) {
     var submitButton = form.querySelector('button[type="submit"]');
-    var opened = Date.now();
+
+    /* The first real interaction, used to spot a bot that fills the form
+       faster than a person can type. Autofill does not fire input events,
+       so a visitor who pastes their details is never treated as a bot. */
+    var firstInputAt = null;
+    form.addEventListener("input", function () {
+      if (firstInputAt === null) { firstInputAt = Date.now(); }
+    });
 
     var mailtoLink = function (name, email, use, message) {
       var body = [
@@ -118,7 +125,8 @@
 
       // A hidden field that only a bot would fill, and a form filled in
       // faster than a person can type.
-      if (honey || Date.now() - opened < 4000) {
+      var typedTooFast = firstInputAt !== null && (Date.now() - firstInputAt) < 1200;
+      if (honey || typedTooFast) {
         status.textContent = "Request sent. We will reply by email.";
         return;
       }

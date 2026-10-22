@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>SmartPrompt AI — a private answer assistant for interviews, meetings and study</title>
+<title>SmartPrompt AI â€” a private answer assistant for interviews, meetings and study</title>
 <meta name="description" content="SmartPrompt AI is a Windows desktop assistant that captures the conversation, transcribes it on your own machine, spots the question and drafts the answer with Ollama. Nothing is recorded to disk." />
 <meta name="theme-color" content="#0d1420" />
 <meta property="og:title" content="SmartPrompt AI" />
@@ -13,7 +13,7 @@
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
 <link rel="preload" href="assets/fonts/instrument-serif-400.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="assets/fonts/plex-sans-var.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="assets/styles.css?v=2" />
+<link rel="stylesheet" href="assets/styles.css?v=3" />
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -46,7 +46,7 @@
   <section class="hero" id="top">
     <div class="wrap hero-grid">
       <div class="hero-text">
-        <p class="tag">Windows 10/11 · .NET 10 · local-first</p>
+        <p class="tag">Windows 10/11 Â· .NET 10 Â· local-first</p>
         <h1>
           Catches the question.<br />
           Drafts the answer.<br />
@@ -72,7 +72,7 @@
       <figure class="hero-figure">
         <img src="assets/app-answer.png" width="420" height="600"
              alt="The SmartPrompt AI overlay showing a detected question, the live transcript and a drafted answer." />
-        <figcaption>Live capture — the overlay, mid-answer.</figcaption>
+        <figcaption>Live capture â€” the overlay, mid-answer.</figcaption>
       </figure>
     </div>
   </section>
@@ -81,7 +81,7 @@
   <div class="specstrip">
     <div class="wrap specstrip-inner">
       <div><span class="spec-value">4 s</span><span class="spec-label">capture chunks</span></div>
-      <div><span class="spec-value">EN · FIL · TAG</span><span class="spec-label">detection languages</span></div>
+      <div><span class="spec-value">EN Â· FIL Â· TAG</span><span class="spec-label">detection languages</span></div>
       <div><span class="spec-value">0 bytes</span><span class="spec-label">written to disk</span></div>
       <div><span class="spec-value">0.9 / 0.5</span><span class="spec-label">answer / ignore gates</span></div>
     </div>
@@ -91,7 +91,7 @@
   <section class="section" id="loop" aria-labelledby="loop-title">
     <div class="wrap section-grid">
       <div class="rail">
-        <p class="rail-index">01 — 04</p>
+        <p class="rail-index">01 â€” 04</p>
         <h2 id="loop-title">The loop</h2>
         <p class="rail-note">
           Four stages, no magic between them. Each one is visible in the
@@ -115,7 +115,7 @@
               and stop are always yours to press.
             </p>
             <p class="stage-spec">
-              <span>in</span> microphone · system mix · mixed<br />
+              <span>in</span> microphone Â· system mix Â· mixed<br />
               <span>out</span> bounded PCM buffers
             </p>
           </div>
@@ -160,7 +160,7 @@
             </p>
             <p class="stage-spec">
               <span>in</span> transcript segment<br />
-              <span>out</span> question · confidence · trigger decision
+              <span>out</span> question Â· confidence Â· trigger decision
             </p>
           </div>
         </li>
@@ -174,8 +174,8 @@
           <div class="stage-body">
             <h3><span class="stage-no">04</span> Answer</h3>
             <p>
-              The question goes to Ollama — local first, cloud only if you asked
-              for it — and the answer is revealed in the panel at a pace you
+              The question goes to Ollama â€” local first, cloud only if you asked
+              for it â€” and the answer is revealed in the panel at a pace you
               choose, so you can read it while the conversation carries on.
             </p>
             <p class="stage-spec">
@@ -204,12 +204,12 @@
       <div class="console" role="img" aria-label="A real SmartPrompt AI run: the transcript reads 'What is your greatest weakness? Please answer in one short sentence.', the app detected it as a question, and the answer reads 'I am a language model and as such, I don't have weaknesses in the traditional sense.'">
         <div class="console-head">
           <span class="console-dot" aria-hidden="true"></span>
-          <span class="console-title">overlay · system audio · qwen2.5-coder:3b</span>
+          <span class="console-title">overlay Â· system audio Â· qwen2.5-coder:3b</span>
         </div>
         <div class="console-body">
           <p class="row"><span class="row-key">transcript</span>What is your greatest weakness? Please answer in one short sentence.</p>
           <p class="row"><span class="row-key">detected</span>What is your greatest weakness? Please answer in one short sentence?</p>
-          <p class="row"><span class="row-key">decision</span>moderate confidence — soft notification, waiting for you</p>
+          <p class="row"><span class="row-key">decision</span>moderate confidence â€” soft notification, waiting for you</p>
           <p class="row row-answer"><span class="row-key">answer</span>I am a language model and as such, I don't have weaknesses in the traditional sense. However, one of the limitations of AI models is their inability to understand and interpret context in the same way that humans do.</p>
         </div>
       </div>
@@ -292,7 +292,7 @@
             <svg class="caption-mark" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
               <path d="M6 10L2 6l4-4M2 6h8a4 4 0 0 1 0 8H7" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
-            Settings — the mode, the trigger strategy, the provider strategy and
+            Settings â€” the mode, the trigger strategy, the provider strategy and
             the key store, in one scroll.
           </figcaption>
         </figure>
@@ -320,7 +320,7 @@
             <svg class="caption-mark" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
               <path d="M6 10L2 6l4-4M2 6h8a4 4 0 0 1 0 8H7" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
-            Models &amp; Providers — routing strategy, live availability probes and
+            Models &amp; Providers â€” routing strategy, live availability probes and
             connection tests on one page.
           </figcaption>
         </figure>
@@ -332,7 +332,7 @@
             <svg class="caption-mark" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
               <path d="M6 10L2 6l4-4M2 6h8a4 4 0 0 1 0 8H7" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
-            “Detect installed models” asks the server what it has, and the list
+            â€œDetect installed modelsâ€ asks the server what it has, and the list
             comes back as quick picks.
           </figcaption>
         </figure>
@@ -379,14 +379,14 @@
             <svg class="caption-mark" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
               <path d="M6 10L2 6l4-4M2 6h8a4 4 0 0 1 0 8H7" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
-            Knowledge Base — collections, per-collection sharing and offline
+            Knowledge Base â€” collections, per-collection sharing and offline
             keyword search.
           </figcaption>
         </figure>
 
         <ul class="ticks">
           <li>Collections for personal notes, interviews, meetings and study material.</li>
-          <li>Keyword ranking that runs entirely on the machine — no embedding service, no upload.</li>
+          <li>Keyword ranking that runs entirely on the machine â€” no embedding service, no upload.</li>
           <li>History is saved by hand: list, detail, delete, JSON export.</li>
           <li>A live session panel shows exactly what the assistant currently holds.</li>
         </ul>
@@ -437,7 +437,7 @@
         </div>
         <div class="field">
           <label for="message">Anything we should know</label>
-          <textarea id="message" name="message" rows="4" placeholder="Windows version, your setup, what you want to test…"></textarea>
+          <textarea id="message" name="message" rows="4" placeholder="Windows version, your setup, what you want to testâ€¦"></textarea>
         </div>
         <button class="cta cta-solid cta-block" type="submit">Compose the request</button>
         <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
@@ -487,7 +487,7 @@
       A private, real-time answer assistant for interviews, meetings and study.
     </p>
     <p class="footer-spec">
-      .NET 10 · WPF · NAudio (WASAPI) · Whisper.net / whisper.cpp · Ollama
+      .NET 10 Â· WPF Â· NAudio (WASAPI) Â· Whisper.net / whisper.cpp Â· Ollama
     </p>
     <p class="footer-spec">
       Screenshots are real captures of the application, not mock-ups.
@@ -495,6 +495,7 @@
   </div>
 </footer>
 
-<script src="assets/site.js?v=2" defer></script>
+<script src="assets/site.js?v=3" defer></script>
 </body>
 </html>
+
