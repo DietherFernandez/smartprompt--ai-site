@@ -510,6 +510,17 @@ code, .mono { font-family: var(--mono); }
   width: 100%;
 }
 .field textarea { resize: vertical; min-height: 104px; }
+
+/* Honeypot: a real field for bots, invisible for people. */
+.field-honey {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
 .field input:focus,
 .field select:focus,
 .field textarea:focus {

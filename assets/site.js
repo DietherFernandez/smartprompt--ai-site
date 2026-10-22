@@ -1,11 +1,21 @@
 // SmartPrompt AI — showcase site behaviour.
-// Two small jobs: a gentle scroll reveal, and a trial request that hands the
-// message to the visitor's mail client addressed to the address below.
+// Three small jobs: a gentle scroll reveal, a trial request that really
+// reaches the maintainer, and a mail-client fallback for people whose
+// browser blocks the request.
 
 (function () {
   "use strict";
 
   var CONTACT = "codevaultpht@gmail.com";
+
+  /* The trial request is POSTed to a form relay that emails the maintainer.
+     FormSubmit needs no account: the recipient address is the endpoint, and
+     the first request triggers a one-time activation email.
+     Swap this for a Formspree/Basin endpoint, or your own handler, without
+     touching anything else. */
+  var ENDPOINT = "https://formsubmit.co/ajax/" + CONTACT;
+
+  var SUBJECT_PREFIX = "SmartPrompt AI trial request";
 
   /* ------------------------------ header ------------------------------ */
   var header = document.querySelector(".site-header");
@@ -51,15 +61,46 @@
   var status = document.getElementById("form-status");
 
   if (form && status) {
+    var submitButton = form.querySelector('button[type="submit"]');
+    var opened = Date.now();
+
+    var mailtoLink = function (name, email, use, message) {
+      var body = [
+        "Hello SmartPrompt AI,",
+        "",
+        "I would like to request a trial build.",
+        "",
+        "Name: " + name,
+        "Email: " + email,
+        "Use case: " + use,
+        message ? "Notes: " + message : "Notes: -"
+      ].join("\n");
+
+      return (
+        "mailto:" + CONTACT +
+        "?subject=" + encodeURIComponent(SUBJECT_PREFIX + " — " + name) +
+        "&body=" + encodeURIComponent(body)
+      );
+    };
+
+    var showFallback = function (reason, href) {
+      status.classList.add("is-error");
+      status.innerHTML =
+        reason + " You can still send it from your own mail client: " +
+        '<a href="' + href + '">' + CONTACT + "</a>.";
+    };
+
     form.addEventListener("submit", function (event) {
       event.preventDefault();
       status.classList.remove("is-error");
+      status.textContent = "";
 
       var data = new FormData(form);
       var name = String(data.get("name") || "").trim();
       var email = String(data.get("email") || "").trim();
       var use = String(data.get("use") || "").trim();
       var message = String(data.get("message") || "").trim();
+      var honey = String(data.get("company") || "").trim();
 
       if (!name || !email) {
         status.classList.add("is-error");
@@ -73,29 +114,63 @@
         return;
       }
 
-      var body = [
-        "Hello SmartPrompt AI,",
-        "",
-        "I would like to request a trial build.",
-        "",
-        "Name: " + name,
-        "Email: " + email,
-        "Use case: " + use,
-        message ? "Notes: " + message : "Notes: -"
-      ].join("\n");
+      var href = mailtoLink(name, email, use, message);
 
-      var subject = "SmartPrompt AI trial request — " + name;
-      var href =
-        "mailto:" + CONTACT +
-        "?subject=" + encodeURIComponent(subject) +
-        "&body=" + encodeURIComponent(body);
+      // A hidden field that only a bot would fill, and a form filled in
+      // faster than a person can type.
+      if (honey || Date.now() - opened < 4000) {
+        status.textContent = "Request sent. We will reply by email.";
+        return;
+      }
 
-      status.innerHTML =
-        "Your mail client should open with the request ready to send to " +
-        '<a href="' + href + '">' + CONTACT + "</a>" +
-        ". If nothing opened, copy the address and send the message yourself.";
+      var payload = {
+        _subject: SUBJECT_PREFIX + " — " + name,
+        _template: "table",
+        _captcha: "false",
+        name: name,
+        email: email,
+        use: use,
+        message: message,
+        company: honey
+      };
 
-      window.location.href = href;
+      if (submitButton) { submitButton.disabled = true; }
+      status.textContent = "Sending your request…";
+
+      fetch(ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(payload)
+      })
+        .then(function (response) {
+          return response.json().catch(function () { return {}; });
+        })
+        .then(function (result) {
+          if (submitButton) { submitButton.disabled = false; }
+
+          // The relay answers with a JSON string, not a boolean.
+          var delivered = result &&
+            (result.success === true || result.success === "true");
+
+          if (delivered) {
+            status.textContent =
+              "Request sent. We will reply to " + email + " with a build and setup notes.";
+            form.reset();
+            return;
+          }
+
+          showFallback(
+            "The request could not be delivered automatically.",
+            href
+          );
+        })
+        .catch(function () {
+          if (submitButton) { submitButton.disabled = false; }
+          showFallback("The request could not be delivered automatically.", href);
+        });
     });
   }
 })();
