@@ -160,6 +160,12 @@ code {
   align-items: start;
 }
 
+/* Grid children must be allowed to shrink, otherwise an image or a long
+   word sets a minimum column width and the page scrolls sideways. */
+.hero-inner > *,
+.privacy-grid > *,
+.trial-grid > * { min-width: 0; }
+
 .eyebrow {
   text-transform: uppercase;
   letter-spacing: .14em;
@@ -413,7 +419,9 @@ code {
 
 @media (max-width: 560px) {
   body { font-size: 16px; }
-  .header-inner { min-height: 60px; }
+  .header-inner { min-height: 60px; gap: .8rem; }
+  .header-cta { padding: .55rem .8rem; font-size: .9rem; }
   .hero-actions .button { width: 100%; }
   .wide-shot img { border-radius: var(--radius); }
+  .hero-facts { gap: .5rem 1rem; }
 }
