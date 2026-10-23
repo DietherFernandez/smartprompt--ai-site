@@ -447,6 +447,18 @@ code, .mono { font-family: var(--mono); }
   border-radius: 3px;
 }
 .model-figure--detail img { max-width: 520px; }
+
+/* -------------------------------- android -------------------------------- */
+.android-shots {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.4rem;
+  max-width: 40rem;
+}
+.android-shots .model-figure img { width: 100%; height: auto; }
+@media (max-width: 620px) {
+  .android-shots { grid-template-columns: minmax(0, 1fr); }
+}
 .assurances-wrap { display: grid; gap: 2.2rem; }
 .model-figure figcaption { display: flex; gap: .55rem; align-items: flex-start; }
 .caption-mark { width: 15px; height: 15px; flex: none; color: var(--accent); margin-top: .25rem; }

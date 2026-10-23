@@ -13,7 +13,7 @@
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
 <link rel="preload" href="assets/fonts/instrument-serif-400.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="assets/fonts/plex-sans-var.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="assets/styles.css?v=3" />
+<link rel="stylesheet" href="assets/styles.css?v=4" />
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -394,6 +394,55 @@
     </div>
   </section>
 
+  <!-- ============================== android ================================= -->
+  <section class="section" id="android" aria-labelledby="android-title">
+    <div class="wrap section-grid">
+      <div class="rail">
+        <p class="rail-index">android</p>
+        <h2 id="android-title">Also on<br />Android</h2>
+        <p class="rail-note">
+          The same dark app, running on a phone. Two screens captured verbatim
+          from the current device build of the Android companion.
+        </p>
+        <p class="rail-note">
+          The phone build is in development and shared through the same trial
+          request flow &mdash; mention the Android build in the form and you
+          are added to the testing round. Audio recognition on device is
+          still being wired up; what you see is the interface and the
+          settings, not the finished pipeline.
+        </p>
+      </div>
+
+      <div class="android-shots">
+        <figure class="model-figure">
+          <img src="assets/android-sm-01-main.png" width="360" height="800" loading="lazy"
+               alt="The Android main screen: the capture card reads Ready with Start and Resume buttons and mic and system level meters; below it an empty transcript panel, a detected question panel and a suggested answer panel." />
+          <figcaption>
+            <svg class="caption-mark" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+              <path d="M8 2l-3 6h2l-1 6 5-8H8l2-4z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" />
+            </svg>
+            Main capture screen &mdash; transcript, detected question and the
+            suggested answer in one scroll.
+          </figcaption>
+        </figure>
+
+        <figure class="model-figure">
+          <img src="assets/android-sm-02-settings.png" width="360" height="800" loading="lazy"
+               alt="The Android settings screen: Audio Source set to Microphone, volume values at 100, transcription language Auto-detect, a Whisper model path field and question detection options." />
+          <figcaption>
+            <svg class="caption-mark" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+              <path d="M2 5h8M12 5h2M2 11h5M9 11h5" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" />
+              <circle cx="11" cy="5" r="1.6" fill="none" stroke="currentColor" stroke-width="1.3" />
+              <circle cx="8" cy="11" r="1.6" fill="none" stroke="currentColor" stroke-width="1.3" />
+            </svg>
+            Settings &mdash; audio source, levels, transcription language and
+            the detection setup.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
   <!-- ================================ trial ================================= -->
   <section class="section section-trial" id="trial" aria-labelledby="trial-title">
     <div class="wrap section-grid">
@@ -432,6 +481,7 @@
             <option>Live interviews</option>
             <option>Meetings</option>
             <option>Study and revision</option>
+            <option>Android build testing</option>
             <option>Something else</option>
           </select>
         </div>
@@ -472,7 +522,7 @@
         </details>
         <details>
           <summary>Which operating systems are supported?</summary>
-          <p>Windows 10 and 11. The application is a .NET 10 WPF desktop app with native WASAPI capture and Windows DPAPI credential storage.</p>
+          <p>Windows 10 and 11 today. The application is a .NET 10 WPF desktop app with native WASAPI capture and Windows DPAPI credential storage. An Android companion (same dark interface, same local-first model choice) is in development and tested with trial participants; see the screenshots above. It does not have working audio recognition yet.</p>
         </details>
       </div>
     </div>
